@@ -54,6 +54,27 @@ function saveUser(req, res){
 	}
 
 }
+/**
+	Esta función es creada por E. López para fines de consulta de usuarios
+*/
+function getUsers(req, res){
+	var userId = req.params.id;
+	User.find((err, users) =>{
+		if(err)
+		{
+			res.status(500).send({message: 'Error en la petición'});
+		}else{
+			if(!users){
+				res.status(404).send({message: 'No hay usuarios'});
+			}else{
+				return res.status(200).send({
+					users: users
+				});
+			}
+		}
+	}).sort('email');
+}
+
 function loginUser(req, res){
 	var params = req.body;
 	var email = params.email;
@@ -169,5 +190,6 @@ module.exports = {
 	loginUser,
 	updateUser,
 	uploadImage,
-	getImageFile
+	getImageFile,
+	getUsers
 };

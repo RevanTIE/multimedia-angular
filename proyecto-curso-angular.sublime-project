@@ -2,7 +2,10 @@
 	"folders":
 	[
 		{
-			"path": "."
-		}
-	]
+			"path": ".",
+		},
+		{
+			"path": "C:\\Users\\elohe\\Documents\\curso-nodejs\\curso-angular-cli"
+		},
+	],
 }
