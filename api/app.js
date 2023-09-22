@@ -1,8 +1,12 @@
 'use strict'
 var express = require('express');
 var bodyParser = require('body-parser');
+var cors = require('cors');
 
 var app = express();
+const whitelist = ['http://localhost:4200'];
+app.use(cors({origin: whitelist})); //Todo el mundo.
+
 //cargar rutas
 var user_routes = require('./routes/user');
 var artist_routes = require('./routes/artist');
